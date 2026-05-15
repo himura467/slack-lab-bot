@@ -18,3 +18,15 @@ pub struct ConversationsHistoryResponse {
     pub response_metadata: Option<ResponseMetadata>,
     pub error: Option<String>,
 }
+
+#[derive(Serialize)]
+pub struct ChatPostMessageRequest<'a> {
+    pub channel: &'a str,
+    pub text: Option<String>,
+}
+
+#[derive(Deserialize)]
+pub struct ChatPostMessageResponse {
+    pub ok: bool,
+    pub error: Option<String>,
+}
