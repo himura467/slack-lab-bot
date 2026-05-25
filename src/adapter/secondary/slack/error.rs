@@ -1,6 +1,6 @@
 use thiserror::Error;
 
-#[derive(Error, Debug)]
+#[derive(Debug, Error)]
 pub enum SlackError {
     #[error("HTTP request failed: {0}")]
     Http(#[from] reqwest::Error),

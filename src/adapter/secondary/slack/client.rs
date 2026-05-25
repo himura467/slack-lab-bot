@@ -1,7 +1,7 @@
 use super::error::SlackError;
 use super::model::{ChatPostMessageRequest, ChatPostMessageResponse, ConversationsHistoryResponse};
 use crate::domain::model::Message;
-use crate::domain::port::SlackClient;
+use crate::service::port::SlackClient;
 use reqwest::Client as HttpClient;
 
 #[derive(Clone)]

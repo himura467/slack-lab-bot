@@ -1,4 +1,4 @@
-use super::model::Message;
+use crate::domain::model::Message;
 
 pub trait SlackClient {
     type Error: std::error::Error + Send + Sync + 'static;
