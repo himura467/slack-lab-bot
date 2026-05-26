@@ -1,5 +1,5 @@
 use super::error::SlackError;
-use super::model::{ChatPostMessageRequest, ChatPostMessageResponse, ConversationsHistoryResponse};
+use super::model::{self, ChatPostMessageRequest, ChatPostMessageResponse, ConversationsHistoryResponse};
 use crate::domain::model::Message;
 use crate::service::port::SlackClient;
 use reqwest::Client as HttpClient;
@@ -53,7 +53,7 @@ impl SlackClient for Client {
                 return Err(SlackError::ConversationsHistory(res.error.unwrap()));
             }
 
-            messages.extend(res.messages.unwrap().into_iter().map(|m| Message {
+            messages.extend(res.messages.unwrap().into_iter().map(|m: model::Message| Message {
                 subtype: m.subtype,
                 user: m.user,
             }));
